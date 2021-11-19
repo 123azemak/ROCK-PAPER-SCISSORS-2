@@ -1,5 +1,8 @@
+
 html {
     height: 100%;
+    font-family: 'Kalam', cursive;
+
 }
 body {
     height: 100%;
@@ -14,12 +17,5 @@ div {
 }
 body {
   background-image: linear-gradient(to bottom, rgb(148, 218, 253), rgb(124, 203, 255), rgb(124, 184, 255), rgb(148, 161, 255), rgb(185, 131, 255));
+  font-family: 'Kalam', cursive;
 }
-
-font {
-    font-family: 'Rosemary';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Rosemary'), url('Rosemary.woff') format('woff');
-    }
-/* this doesn't work but i don't know how to fix it */
