@@ -1,9 +1,9 @@
 // make vars
 
 var userChoice; //get value from button click
-let compChoice; //random choice
+let compChoice;
 let userScore= 0, compScore = 0; //keeps track of wins/losses
-
+var result;
 
 
 document.getElementById("rock").addEventListener("click", function(){
@@ -15,34 +15,69 @@ document.getElementById("paper").addEventListener("click", function(){
 document.getElementById("scissors").addEventListener("click", function(){
   getInput(this.id);
 })
+document.getElementById("shoot").addEventListener("click", function(){
+  getComputerChoice(this.id);
+})
 // add event listeners to all 3 buttons outside of other functions, so like on startup
 // onclick call getinput function
 // get input (user's choice)
 function getInput(choice)
 {
   userChoice= choice;
+  document.getElementById("playerOne").textContent = choice;
 // console.log(choice)
 }
-
 function getComputerChoice()
 {
-  // random math equation thingy goes here eeby deeby
+  compChoice = Math.floor(Math.random() * 3);
+//0 is rock
+//1 is paper
+//2 is scissors
+  console.log(compChoice);
+  compareChoices();
 }
 // comparing your choice with computer choice
 function compareChoices()
 {
-  // switch statement for ALL outcomes
+  switch (userChoice + compChoice) {
+    case "paper1":
+    case "scissors2":
+    case "rock0": result = "Tie!";
+  break;
+      case "paper2":
+      case "scissors0":
+      case "rock1": result = "You Lose!";
+      updateScore("comp");
+  break;
+    case "paper0":
+    case "scissors1":
+    case "rock2": result = "You Win! :3";
+    updateScore("user");
+  break;
+ default: result = "Uh Oh";
+  }
+  displayResult()
 }
-
+// get the computer to display its choice
 function displayResult()
 {
-  // get html element to display the text of the result
+  document.getElementById("resultText").textContent = result;
 }
 
-function updateScore()
+function updateScore(winner)
 {
+  if(winner == "user")
+  {
+    userScore++
+  }
+  else {
+    {
+      compScore++;
+    }
+  }
   // icrement user or comp score
   // update score on screen
+  console.log(compScore + " : " + userScore);
 }
 
 
