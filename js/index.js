@@ -18,6 +18,9 @@ document.getElementById("scissors").addEventListener("click", function(){
 document.getElementById("shoot").addEventListener("click", function(){
   getComputerChoice(this.id);
 })
+document.getElementById("resetDaScore").addEventListener("click", function(){
+  resetScore();
+})
 // add event listeners to all 3 buttons outside of other functions, so like on startup
 // onclick call getinput function
 // get input (user's choice)
@@ -58,7 +61,7 @@ function compareChoices()
   }
   displayResult()
 }
-// get the computer to display its choice
+// get the computer to display its choice somehow
 function displayResult()
 {
   document.getElementById("resultText").textContent = result;
@@ -78,11 +81,19 @@ function updateScore(winner)
   // icrement user or comp score
   // update score on screen
   console.log(compScore + " : " + userScore);
+  document.getElementById("userScoreText").textContent = userScore;
+  document.getElementById("compScoreText").textContent = compScore;
 }
 
 
-function resetscore()
+function resetScore()
 {
+  userScore = 0;
+  compScore = 0;
+  result = " ";
+  document.getElementById("resultText").textContent = result;
+  document.getElementById("userScoreText").textContent = userScore;
+  document.getElementById("compScoreText").textContent = compScore;
   // set user and comp score to 0
   // update score on screen
 }
